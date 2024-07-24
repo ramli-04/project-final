@@ -29,21 +29,21 @@
             messages: {
 
                 con_fname: {
-                    required: 'First name must be filled out.'
+                    required: ' Ce champ est obligatoire.'
                 },
                 con_lname: {
-                    required: 'Last name must be filled out.'
+                    required: 'Ce champ est obligatoire.'
                 },
                 con_phone: {
-                    required: 'Phone must be filled out.'
+                    required: 'Ce champ est obligatoire.'
                 },
                 con_message: {
-                    required: 'Message must be filled out.'
+                    required: 'Ce champ est obligatoire.'
                 },
 
                 con_email: {
-                    required: 'Email must be filled out.',
-                    email: 'Your email must be valid.'
+                    required: 'Ce champ est obligatoire.',
+                    email: 'Votre email n est pas valid.'
                 }
             },
 
