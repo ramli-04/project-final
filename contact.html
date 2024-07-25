@@ -12,6 +12,20 @@
     <link media="all" rel="stylesheet" href="vendors/font-awesome/css/font-awesome.css">
     <link media="all" rel="stylesheet" href="css/bootstrap.css">
     <link media="all" rel="stylesheet" href="css/main.css">
+
+   
+   
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "86D1xRFagRXs--juV",
+      });
+   })();
+</script>
+
 </head>
 
 <body>
@@ -82,11 +96,11 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <!-- contact form -->
-                                        <form action="#" method="post" id="contact_form" class="WebDev_contact-form">
+                                        <form   id="contact_form"  class="WebDev_contact-form">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="text" placeholder="Prenom *" id="con_fname" name="con_fname" class="form-control">
+                                                        <input type="text" placeholder="Prenom *" id="con_fname" name="con_fname" class="form-control" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -98,20 +112,20 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="tel" placeholder="Telephone" id="con_phone" name="con_phone" class="form-control">
+                                                        <input type="tel" placeholder="Telephone" id="con_phone" name="con_phone" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="email" placeholder="EMAIL  *" id="con_email" name="con_email" class="form-control">
+                                                        <input type="email" placeholder="EMAIL" id="con_email" name="con_email" class="form-control" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <textarea class="form-control" placeholder="MESSAGE *" id="con_message" name="con_message"></textarea>
+                                                <textarea class="form-control" placeholder="MESSAGE *" id="con_message" name="con_message" required></textarea>
                                             </div>
                                             <div class="btn-container">
-                                                <button id="btn_sent" class="btn btn-primary btn-arrow">Envoyer un message</button>
+                                                <button  class="btn btn-primary btn-arrow" id="submitbtn" >Envoyer un message</button>
                                                 <p id="error_message"> </p>
                                             </div>
                                         </form>
@@ -156,8 +170,8 @@
                                 <form action="#" method="post">
                                     <fieldset class="clearfix">
                                         <div class="form-group input-holder">
-                                            <input type="email" class="form-control" placeholder="Email Address">
-                                            <button type="submit" class="btn"><i class="fa fa-send"></i></button>
+                                            <input type="email" id="con_email" name="con_email" class="form-control" placeholder="Email Address">
+                                            <button type="submit" class="btn" id="submitbtn" ><i class="fa fa-send"></i></button>
                                         </div>
                                     </fieldset>
                                 </form>
@@ -212,7 +226,10 @@
             </div>
         </footer>
     </div>
-    
+   
+
+
+
 
     <a href="#" class="section-scroll" id="scroll-to-top"><i class="fa fa-angle-up"></i></a>
    <!-- jquery library -->

@@ -1,9 +1,11 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
 if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'sendEmail')
 {
-	$to = 'support@mail.com';
-	$subject = 'webdev Contact Form';
-	$send_arr = array();	
 	
 	$headers = "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -29,7 +31,33 @@ if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'sendEmail')
 			}
 	echo json_encode($send_arr);
 	exit;
-	
+	// Create a new PHPMailer instance
+	$mail = new PHPMailer(exceptions: true);
+	try {
+		  // Configure the PHPMailer instance
+		  $mail->isSMTP();
+		  $mail->Host = 'sandbox.smtp.mailtrap.io';
+		  $mail->SMTPAuth = true;
+		  $mail->Username = 'bc13dd73b4c6c9';
+		  $mail->Password = 'e68ebc5b1394ea';
+		  $mail->SMTPSecure = 'tls';
+		  $mail->Port = 2525;
+		 
+		  // Set the sender, recipient, subject, and body of the message 
+		  $mail->setFrom($email);
+		  $mail->addAddress($email);
+		  $mail->setFrom($fromEmail);
+		  $mail->Subject = $emailSubject;
+		  $mail->isHTML( isHtml: true);
+		  $mail->Body = "<p>Name: {$name}</p><p>Email: {$email}</p><p>Message: {$message}</p>";
+	   
+		  // Send the message
+		  $mail->send () ;
+		  $successMessage = "<p style='color: green; '>Thank you for contacting us :)</p>";
+	} catch (Exception $e) {
+		  $errorMessage = "<p style='color: red; '>Oops, something went wrong. Please try again later</p>";
+echo $errorMessage;
+}
 }
 
 ?>
